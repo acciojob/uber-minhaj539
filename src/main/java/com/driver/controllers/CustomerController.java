@@ -34,7 +34,7 @@ public class CustomerController {
 			 bookedTrip = customerService.bookTrip(customerId, fromLocation, toLocation, distanceInKm);
 		}
 		catch (Exception e){
-			return new ResponseEntity<>(-1, HttpStatus.CREATED);
+			throw new Exception("No cab available!");
 		}
 		return new ResponseEntity<>(bookedTrip.getTripBookingId(), HttpStatus.CREATED);
 	}

@@ -48,42 +48,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public TripBooking bookTrip(int customerId, String fromLocation, String toLocation, int distanceInKm) throws Exception{
-	/*	Customer customer=customerRepository2.findById(customerId).get();
-		List<Driver> DriverList=driverRepository2.findAll();
-		try {
-			for (Driver driver : DriverList) {
-				Cab cab = driver.getCab();
-				if (cab.isAvailable()) {
-					List<TripBooking> tripBookingList = driver.getTripBookingList();
-					List<TripBooking> custTripBookingList = customer.getTripBookingList();
-					TripBooking tripBooking = new TripBooking();
-					tripBooking.setFromLocation(fromLocation);
-					tripBooking.setToLocation(toLocation);
-					tripBooking.setTripStatus(TripStatus.CONFIRMED);
-					int bill = cab.getPerKmRate();
-					bill = bill * distanceInKm;
-					tripBooking.setBill(bill);
-					tripBooking.setDriver(driver);
-					tripBooking.setCustomer(customer);
-					tripBookingList.add(tripBooking);
-					custTripBookingList.add(tripBooking);
-					customer.setTripBookingList(custTripBookingList);
-					customerRepository2.save(customer);
 
-					driver.setCab(cab);
-					driver.setTripBookingList(tripBookingList);
-					driverService.updateStatus(driver.getId());
-					return tripBooking;
-				}
-			}
-		}
-		catch (Exception e) {
-			throw new Exception("No cab available!");
-		}
-		//Book the driver with lowest driverId who is free (cab available variable is Boolean.TRUE). If no driver is available, throw "No cab available!" exception
-		//Avoid using SQL query
-
-		return null;*/
 		Customer customer=customerRepository2.findById(customerId).get();
 
 		TripBooking tripBook = new TripBooking();
@@ -111,8 +76,7 @@ public class CustomerServiceImpl implements CustomerService {
 					List<TripBooking> customerTrips = customer.getTripBookingList();
 					customerTrips.add(tripBook);
 					customer.setTripBookingList(customerTrips);
-					driver.getCab().setAvailable(false);
-					//driverService.updateStatus(driver.getDriverId());
+					driverService.updateStatus(driver.getDriverId());
 					tripBookingRepository2.save(tripBook);
 				}
 			}
