@@ -13,11 +13,11 @@ public class Admin{
     private String password;
 
 
-    @OneToMany(mappedBy = "admin",cascade = CascadeType.ALL)
+   /* @OneToMany(mappedBy = "admin",cascade = CascadeType.ALL)
     private List<Customer> customerList;
 
     @OneToMany(mappedBy = "admin",cascade = CascadeType.ALL)
-    private List<Driver> driverList;
+    private List<Driver> driverList;*/
 
     public int getAdminId() {
         return id;

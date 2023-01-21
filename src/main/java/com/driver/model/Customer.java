@@ -14,9 +14,9 @@ import java.util.List;
     private String password;
 
 
-    @ManyToOne
+   /* @ManyToOne
     @JoinColumn
-    private Admin admin;
+    private Admin admin;*/
 
     @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
     private List<TripBooking> tripBookingList=new ArrayList<>();
