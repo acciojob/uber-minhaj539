@@ -32,10 +32,8 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public void register(Customer customer) {
-		Customer customer1=new Customer();
-		customer1.setMobile(customer.getMobile());
-		customer1.setPassword(customer.getPassword());
-		customerRepository2.save(customer1);
+
+		customerRepository2.save(customer);
 		//Save the customer in database
 	}
 
