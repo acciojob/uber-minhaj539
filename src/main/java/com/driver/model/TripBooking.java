@@ -59,11 +59,11 @@ public class TripBooking {
         this.bill = bill;
     }
 
-    public TripStatus getTripStatus() {
+    public TripStatus getStatus() {
         return tripStatus;
     }
 
-    public void setTripStatus(TripStatus tripStatus) {
+    public void setStatus(TripStatus tripStatus) {
         this.tripStatus = tripStatus;
     }
 
@@ -89,5 +89,13 @@ public class TripBooking {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

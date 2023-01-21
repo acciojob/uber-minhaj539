@@ -39,5 +39,14 @@ import java.util.List;
     public void setTripBookingList(List<TripBooking> tripBookingList) {
         this.tripBookingList = tripBookingList;
     }
+
+    public int getCustomerId() {
+        return id;
+    }
+
+    public void setCustomerId(int id) {
+        this.id = id;
+    }
+
 }
 

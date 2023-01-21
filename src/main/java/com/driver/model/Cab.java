@@ -40,4 +40,12 @@ public class Cab{
     public void setDriver(Driver driver) {
         this.driver = driver;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

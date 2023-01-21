@@ -7,11 +7,11 @@ import javax.persistence.Id;
 
 @Entity
 public class Admin{
-    public String getUserName() {
+    public String getUsername() {
         return userName;
     }
 
-    public void setUserName(String userName) {
+    public void setUsername(String userName) {
         this.userName = userName;
     }
 
@@ -29,4 +29,11 @@ public class Admin{
     private String userName;
     private String password;
 
+    public int getAdminId() {
+        return id;
+    }
+
+    public void setAdminId(int id) {
+        this.id = id;
+    }
 }
