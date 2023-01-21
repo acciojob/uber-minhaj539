@@ -38,8 +38,8 @@ public class DriverServiceImpl implements DriverService {
 
 	@Override
 	public void removeDriver(int driverId){
-
-		driverRepository3.deleteById(driverId);
+ 		Driver driver=driverRepository3.findById(driverId).get();
+		driverRepository3.delete(driver);
 		// Delete driver without using deleteById function
 
 	}
