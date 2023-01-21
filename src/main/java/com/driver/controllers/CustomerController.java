@@ -34,7 +34,7 @@ public class CustomerController {
 			 bookedTrip = customerService.bookTrip(customerId, fromLocation, toLocation, distanceInKm);
 		}
 		catch (Exception e){
-			throw new Exception("No value present");
+			throw new Exception (e.getMessage());
 		}
 		return new ResponseEntity<>(bookedTrip.getTripBookingId(), HttpStatus.CREATED);
 	}
