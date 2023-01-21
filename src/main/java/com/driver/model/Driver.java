@@ -13,6 +13,10 @@ public class Driver {
     private String password;
 
 
+    @ManyToOne
+    @JoinColumn
+    private Admin admin;
+
     @OneToOne(mappedBy ="driver",cascade = CascadeType.ALL)
     private Cab cab;
 

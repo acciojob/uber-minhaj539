@@ -1,9 +1,7 @@
 package com.driver.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Admin{
@@ -13,6 +11,13 @@ public class Admin{
     private int id;
     private String username;
     private String password;
+
+
+    @OneToMany(mappedBy = "admin",cascade = CascadeType.ALL)
+    private List<Customer> customerList;
+
+    @OneToMany(mappedBy = "admin",cascade = CascadeType.ALL)
+    private List<Driver> driverList;
 
     public int getAdminId() {
         return id;

@@ -13,6 +13,11 @@ import java.util.List;
     private String mobile;
     private String password;
 
+
+    @ManyToOne
+    @JoinColumn
+    private Admin admin;
+
     @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
     private List<TripBooking> tripBookingList=new ArrayList<>();
 
