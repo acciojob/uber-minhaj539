@@ -116,4 +116,7 @@ public class CustomerServiceImpl implements CustomerService {
 		//Complete the trip having given trip Id and update TripBooking attributes accordingly
 
 	}
+	public List<Customer> customerList(){
+		return customerRepository2.findAll();
+	}
 }

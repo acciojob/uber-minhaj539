@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import com.driver.model.Driver;
 import com.driver.repository.DriverRepository;
 
+import java.util.List;
+
 @Service
 public class DriverServiceImpl implements DriverService {
 
@@ -55,5 +57,8 @@ public class DriverServiceImpl implements DriverService {
 
 		//Set the status of respective car to unavailable
 
+	}
+	public List<Driver> driverList(){
+		return driverRepository3.findAll();
 	}
 }
