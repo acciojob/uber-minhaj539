@@ -54,39 +54,43 @@ public class CustomerServiceImpl implements CustomerService {
 		TripBooking tripBook = new TripBooking();
 
 		List<Driver> driverList=driverRepository2.findAll();
-		boolean flag=false;
 
 		Driver currDriver=null;
 
 
 			for (Driver driver : driverList) {
-				if (currDriver == null || currDriver.getDriverId() > driver.getDriverId()) {
-					currDriver = driver;
+				if (driver.getCab().getAvailable() == true) {
+					if (currDriver == null || currDriver.getDriverId() > driver.getDriverId()) {
+						currDriver = driver;
+					}
 				}
 			}
-			if(currDriver==null) throw new Exception("No cab available");
+			if(currDriver==null) throw new Exception("No cab available!");
 
 		    Customer customer=customerRepository2.findById(customerId).get();
 
-
+					tripBook.setCustomer(customer);
+					tripBook.setDriver(currDriver);
+		  			currDriver.getCab().setAvailable(false);
 					tripBook.setFromLocation(fromLocation);
 					tripBook.setToLocation(toLocation);
 					tripBook.setDistanceInKm(distanceInKm);
-					tripBook.setCustomer(customer);
-					tripBook.setDriver(currDriver);
 					tripBook.setStatus(TripStatus.CONFIRMED);
+
+
 					int bill = currDriver.getCab().getPerKmRate();
 					bill = bill * distanceInKm;
 					tripBook.setBill(bill);
 
-					List<TripBooking> driverTrips = currDriver.getTripBookingList();
-					driverTrips.add(tripBook);
-					currDriver.setTripBookingList(driverTrips);
-					List<TripBooking> customerTrips = customer.getTripBookingList();
-					customerTrips.add(tripBook);
-					customer.setTripBookingList(customerTrips);
+		    		customer.getTripBookingList().add(tripBook);
+					customerRepository2.save(customer);
+
+					currDriver.getTripBookingList().add(tripBook);
 					driverRepository2.save(currDriver);
-					tripBookingRepository2.save(tripBook);
+
+
+
+
 
 
 
