@@ -21,7 +21,7 @@ public class Driver {
     private Cab cab;
 
     @OneToMany(mappedBy = "driver",cascade = CascadeType.ALL)
-    private List<TripBooking> tripBookingList=new ArrayList<>();
+    private List<TripBooking> tripBookingList;
 
     public String getMobile() {
         return mobile;

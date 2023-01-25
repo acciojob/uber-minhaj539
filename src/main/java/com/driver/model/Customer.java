@@ -19,7 +19,7 @@ import java.util.List;
     private Admin admin;*/
 
     @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
-    private List<TripBooking> tripBookingList=new ArrayList<>();
+    private List<TripBooking> tripBookingList;
 
     public String getMobile() {
         return mobile;
