@@ -90,14 +90,7 @@ public class CustomerServiceImpl implements CustomerService {
 					driverRepository2.save(currDriver);
 
 
-
-
-
-
-
 		return tripBook;
-
-
 	}
 
 	@Override
@@ -107,7 +100,7 @@ public class CustomerServiceImpl implements CustomerService {
 		tripBooking.setStatus(TripStatus.CANCELED);
 		Driver driver=tripBooking.getDriver();
 		Cab cab=driver.getCab();
-		cab.setAvailable(true);
+		cab.setAvailable(Boolean.TRUE);
 		tripBooking.setBill(0);
 		tripBookingRepository2.save(tripBooking);
 
@@ -122,7 +115,7 @@ public class CustomerServiceImpl implements CustomerService {
 		tripBooking.setStatus(TripStatus.COMPLETED);
 		int bill=tripBooking.getDriver().getCab().getPerKmRate()*tripBooking.getDistanceInKm();
 		tripBooking.setBill(bill);
-		tripBooking.getDriver().getCab().setAvailable(true);
+		tripBooking.getDriver().getCab().setAvailable(Boolean.TRUE);
 		tripBookingRepository2.save(tripBooking);
 		//Complete the trip having given trip Id and update TripBooking attributes accordingly
 
