@@ -27,6 +27,9 @@ public class TripBooking {
    @JoinColumn
    private Customer customer;
 
+    public TripBooking() {
+    }
+
     public TripBooking(String toLocation, String fromLocation, int distanceInKm, TripStatus confirmed) {
         this.toLocation = toLocation;
         this.fromLocation = fromLocation;
