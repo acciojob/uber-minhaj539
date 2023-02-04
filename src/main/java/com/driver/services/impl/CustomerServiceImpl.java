@@ -60,8 +60,10 @@ public class CustomerServiceImpl implements CustomerService {
 			}
 		}*/
 		for(Driver driver:drivers){
-			if(requiredDriver==null||requiredDriver.getDriverId()>driver.getDriverId()){
-				requiredDriver=driver;
+			if(driver.getCab().getAvailable()==true) {
+				if (requiredDriver == null || requiredDriver.getDriverId() > driver.getDriverId()) {
+					requiredDriver = driver;
+				}
 			}
 		}
 
