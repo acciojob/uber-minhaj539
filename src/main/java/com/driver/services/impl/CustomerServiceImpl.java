@@ -51,7 +51,7 @@ public class CustomerServiceImpl implements CustomerService {
 		//Avoid using SQL query
 
 		List<Driver> drivers = driverRepository2.findAll();
-		drivers.sort(Comparator.comparingInt(Driver::getDriverId));
+	//	drivers.sort(Comparator.comparingInt(Driver::getDriverId));
 		Driver requiredDriver = null;
 		/*for (Driver driver : drivers) {
 			if (driver.getCab().getAvailable()) {
